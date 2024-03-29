@@ -1,8 +1,22 @@
+# IDE-specific files
+.idea/
+*.iml
+*.class
+
+# Build artefacts
+/build/
+/out/
+/target/
+
+# Gradle files
+.gradle/
+
 # Compiled class file
 *.class
 
-# Log file
+# Log file & temps
 *.log
+/tmp/
 
 # BlueJ files
 *.ctxt
@@ -24,4 +38,4 @@ hs_err_pid*
 replay_pid*
 
 # Ignore lib (contains jre-1.8, evosuite, hamcrest, junit-4.12, plume, rendoop, MuJava.
-/lib
+/lib/
