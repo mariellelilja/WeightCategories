@@ -2,6 +2,13 @@ package classes;
 
 public class WeightHelper {
     public static double calculateBMI(double heightInCm, double weightInKg) {
+        if (heightInCm <= 0 || weightInKg <= 0){
+            throw new IllegalArgumentException("Write values for height and weight above 0 kg or 0 cm.");
+        } else if (heightInCm >= 350 || weightInKg >= 750) {
+            throw new IllegalArgumentException("Write values for height and weight below 750 kg or 350 cm.");
+        }
+        
+        
         double heightInMeters = heightInCm / 100;
         return weightInKg / (heightInMeters * heightInMeters);
     }
