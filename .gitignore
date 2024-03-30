@@ -45,3 +45,4 @@ replay_pid*
 
 # Ignore lib (contains jre-1.8, evosuite, hamcrest, junit-4.12, plume, rendoop, MuJava.
 /lib/
+/.metadata/
