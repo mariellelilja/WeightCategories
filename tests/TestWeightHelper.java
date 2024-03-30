@@ -1,15 +1,34 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
-
-import org.junit.Assert;
+// import static org.junit.Assert.assertThrows;
+import org.junit.Assert.*;
 import org.junit.Test;
+
 import classes.WeightHelper;
 
 public class TestWeightHelper {
 
+    //Testing calculateBMI
+
+    /* 0 cm < height < 250 cm
+    ** 0 kg < weight < 300 kg */
+
+    /** Equivalence Partitioning - 3 classes/test cases: **/
+    //Valid input
+    //Invalid input n1
+    //Invalid input n2
+
+    /** Boundary Value Analysis - 6 classes/test cases: **/
+    //Just below minimum
+    //Minimum boundary
+    //Just above minimum
+    //Just below maxmimum
+    //Maxmimum boundary
+    //Just above maxmimum
+
     @Test
-    public void testCalculateBMI_NormalValues() {
+    public void testCalculateBMI_ValidInput() {
 
         // arrange
         double height = 170;
@@ -23,41 +42,74 @@ public class TestWeightHelper {
         Assert.assertEquals(expectedBMI, calcuatedBMI, 0.01);
     }
 
-    @Test
+    @Test(expected = IllegalArgumentException.class)
+    public void testCalculateBMI_InvalidInput_n1() {
+
+        // arrange
+        double height = -2;
+        double weight = 0;
+
+        // act
+        WeightHelper.calculateBMI(height, weight);
+
+        // // act & assert
+        // assertThrows(IllegalArgumentException.class, () -> {
+        //     WeightHelper.calculateBMI(height, weight);
+        // });
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCalculateBMI_InvalidInput_n2() {
+
+        // arrange
+        double height = 266;
+        double weight = 324;
+
+        // act
+        WeightHelper.calculateBMI(height, weight);
+
+        // // act & assert
+        // assertThrows(IllegalArgumentException.class, () -> {
+        //     WeightHelper.calculateBMI(height, weight);
+        // });
+    }
+
+    @Test(expected = IllegalArgumentException.class)
     public void testCalculateBMI_Minimum() {
         // arrange
         double height = 0;
         double weight = 0;
-        double expectedBMI = 0;
 
         // act
-        double calculatedBMI = WeightHelper.calculateBMI(height, weight);
+        WeightHelper.calculateBMI(height, weight);
 
-        // assert
-        assertEquals(expectedBMI, calculatedBMI, 0.01);
-
+        // // act & assert
+        // assertThrows(IllegalArgumentException.class, () -> {
+        //     WeightHelper.calculateBMI(height, weight);
+        // });
     }
 
-    @Test
-    public void testCalculateBMI_Maximum() { // Reasonable maximum weight and height
+    @Test(expected = IllegalArgumentException.class)
+    public void testCalculateBMI_Maximum() {
         // arrange
         double height = 250;
-        double weight = 250;
-        double expectedBMI = 1000000;
+        double weight = 300;
 
         // act
-        double calculatedBMI = WeightHelper.calculateBMI(height, weight);
-
-        // assert
-        assertEquals(expectedBMI, calculatedBMI, 0.01);
+        WeightHelper.calculateBMI(height, weight);
+        
+        // // act & assert
+        // assertThrows(IllegalArgumentException.class, () -> {
+        //     WeightHelper.calculateBMI(height, weight);
+        // });        
     }
 
     @Test
     public void testCalculateBMI_JustBelowMaximum() {
         // arrange
         double height = 249.99;
-        double weight = 249.99;
-        double expectedBMI = 2.78;
+        double weight = 299.99;
+        double expectedBMI = 76.79;
 
         // act
         double calculatedBMI = WeightHelper.calculateBMI(height, weight);
@@ -80,6 +132,7 @@ public class TestWeightHelper {
         assertEquals(expectedBMI, calculatedBMI, 0.01);
     }
 
+    //Testing getCtegory
     @Test
     public void testGetCategory_Underweight() {
         // arrange
