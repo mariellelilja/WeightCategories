@@ -1,4 +1,9 @@
 // test-generation-mutation.gradle.kts
+
+import org.gradle.process.ExecSpec
+task runRandoop(type: Exec) {
+    commandLine("java", "-jar", "../lib/randoop-4.3.2.jar", "gentests", "--classlist=../targetclasses.txt", "--output-tests=../out")
+}
 plugins {
     id("java")
 }

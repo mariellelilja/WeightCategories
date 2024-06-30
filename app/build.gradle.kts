@@ -5,6 +5,8 @@
  * For more details on building Java & JVM projects, please refer to https://docs.gradle.org/8.6/userguide/building_java_projects.html in the Gradle documentation.
  */
 
+
+
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     //application
@@ -18,14 +20,18 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit test framework.
-    testImplementation(libs.junit)
-    testImplementation(libs.hamcrest)
-  
+    // // Use JUnit test framework.
+    // testImplementation(libs.junit)
+    // testImplementation(libs.hamcrest)
+    // implementation("com.github.javaparser:javaparser-symbol-solver-core:3.25.9") 
 
-    // This dependency is used by the application.
-    implementation(libs.guava)
-    implementation(libs.plume)
+    // // This dependency is used by the application.
+    // implementation(libs.guava)
+    // implementation(libs.plume)
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.1")
+    implementation("com.github.javaparser:javaparser-symbol-solver-core:3.25.9")
+    implementation("com.google.guava:guava:30.1.1-jre")
 
 }
 
@@ -36,12 +42,14 @@ if (project.hasProperty("testGen")) {
 // Apply a specific Java toolchain to ease working on different environments.
 java {
     toolchain {
-        languageVersion = JavaLanguageVersion.of(8)
+        // languageVersion = JavaLanguageVersion.of(8)
+        languageVersion.set(JavaLanguageVersion.of(8))
     }
 }
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.App"
+    // mainClass = "org.example.App"
+    mainClass.set("org.example.App")
 }
 
