@@ -36,6 +36,27 @@ dependencies {
 //    }
     implementation("plume-util:plume-util:1.9.0")
     implementation("randoop:randoop:4.3.2")
+    
+        // Randoop dependencies
+    implementation("randoop:randoop:4.3.2")
+    //implementation("org.plumelib:plume-util:1.9.0");
+//    implementation("org.plumelib:plume-lib:1.3.0");
+ // implementation ("org.plumelib:plume-util:1.9.3");
+ 
+     // EvoSuite dependencies
+    implementation(files("lib/evosuite-1.0.6.jar"))
+}
+
+tasks.register<JavaExec>("generateTests") {
+    classpath = sourceSets["main"].runtimeClasspath + files("lib/randoop-4.3.2.jar", "lib/plume-util-1.9.0.jar")
+    mainClass.set("randoop.main.Main")
+    args = listOf("gentests", "--testclass=org.example.WeightHelper", "--junit-output-dir=src/test/java")
+}
+
+tasks.register<JavaExec>("generateTestsWithEvoSuite") {
+    classpath = sourceSets["main"].runtimeClasspath + files("lib/evosuite-1.0.6.jar")
+    mainClass.set("org.evosuite.EvoSuite")
+    args = listOf("-class", "org.example.WeightHelper", "-projectCP", "build/classes/java/main", "-Dtest_dir=src/test/java")
 }
 
 if (project.hasProperty("testGen")) {

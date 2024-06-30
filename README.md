@@ -3,3 +3,5 @@ BTH Lean SW Testing. Simple BMI calculation functionality with JUnit tests, addi
 </br>
 [![Java CI with Gradle](https://github.com/mariellelilja/WeightCategories/actions/workflows/gradle.yml/badge.svg)](https://github.com/mariellelilja/WeightCategories/actions/workflows/gradle.yml)
 
+# Run Evosuite with gradle:
+gradle generateTestsWithEvoSuite

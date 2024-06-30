@@ -8,25 +8,55 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     //application
-    id("java")
+	id("java")
     id("application")
 }
 
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
+    flatDir {
+        dirs("lib")    }
 }
 
 dependencies {
     // Use JUnit test framework.
-    testImplementation(libs.junit)
-    testImplementation(libs.hamcrest)
-  
+    ///testImplementation(libs.junit)
 
     // This dependency is used by the application.
-    implementation(libs.guava)
-    implementation(libs.plume)
+    ///implementation(libs.guava)
+    
+    // Use JUnit test framework.
+    testImplementation("junit:junit:4.12")
+    testImplementation("org.hamcrest:hamcrest-core:1.3")
+    implementation("com.github.javaparser:javaparser-symbol-solver-core:3.25.9")
+    implementation("com.google.guava:guava:30.1.1-jre")
+//    implementation("evosuite:evosuite:1.0.6") {
+//        exclude(group = "junit", module = "junit")
+//    }
+    implementation("plume-util:plume-util:1.9.0")
+    implementation("randoop:randoop:4.3.2")
+    
+        // Randoop dependencies
+    implementation("randoop:randoop:4.3.2")
+    //implementation("org.plumelib:plume-util:1.9.0");
+//    implementation("org.plumelib:plume-lib:1.3.0");
+ // implementation ("org.plumelib:plume-util:1.9.3");
+ 
+     // EvoSuite dependencies
+    implementation(files("lib/evosuite-1.0.6.jar"))
+}
 
+tasks.register<JavaExec>("generateTests") {
+    classpath = sourceSets["main"].runtimeClasspath + files("lib/randoop-4.3.2.jar", "lib/plume-util-1.9.0.jar")
+    mainClass.set("randoop.main.Main")
+    args = listOf("gentests", "--testclass=org.example.WeightHelper", "--junit-output-dir=src/test/java")
+}
+
+tasks.register<JavaExec>("generateTestsWithEvoSuite") {
+    classpath = sourceSets["main"].runtimeClasspath + files("lib/evosuite-1.0.6.jar")
+    mainClass.set("org.evosuite.EvoSuite")
+    args = listOf("-class", "org.example.WeightHelper", "-projectCP", "build/classes/java/main", "-Dtest_dir=src/test/java")
 }
 
 if (project.hasProperty("testGen")) {
@@ -44,4 +74,3 @@ application {
     // Define the main class for the application.
     mainClass = "org.example.App"
 }
-
