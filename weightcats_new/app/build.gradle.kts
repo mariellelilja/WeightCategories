@@ -12,6 +12,17 @@ plugins {
     id("application")
 }
 
+tasks.withType<JavaCompile> {
+    options.encoding = "UTF-8"
+    sourceCompatibility = "1.8"
+    targetCompatibility = "1.8"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
@@ -74,3 +85,19 @@ application {
     // Define the main class for the application.
     mainClass = "org.example.App"
 }
+
+
+sourceSets {
+    main {
+        java {
+            srcDirs("src/main/java")
+        }
+    }
+    test {
+        java {
+            srcDirs("src/test/java")
+        }
+    }
+}
+
+//tasks.test {    useJUnitPlatform()}
