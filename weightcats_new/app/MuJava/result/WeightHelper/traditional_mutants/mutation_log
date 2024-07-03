@@ -1,0 +1,65 @@
+AORB_1:23:double_calculateBMI(double,double):heightInCm / 100 => heightInCm * 100
+AORB_2:23:double_calculateBMI(double,double):heightInCm / 100 => heightInCm % 100
+AORB_3:23:double_calculateBMI(double,double):heightInCm / 100 => heightInCm + 100
+AORB_4:23:double_calculateBMI(double,double):heightInCm / 100 => heightInCm - 100
+AORB_5:24:double_calculateBMI(double,double):heightInMeters * heightInMeters => heightInMeters / heightInMeters
+AORB_6:24:double_calculateBMI(double,double):heightInMeters * heightInMeters => heightInMeters % heightInMeters
+AORB_7:24:double_calculateBMI(double,double):heightInMeters * heightInMeters => heightInMeters + heightInMeters
+AORB_8:24:double_calculateBMI(double,double):heightInMeters * heightInMeters => heightInMeters - heightInMeters
+AORB_9:24:double_calculateBMI(double,double):weightInKg / (heightInMeters * heightInMeters) => weightInKg * (heightInMeters * heightInMeters)
+AORB_10:24:double_calculateBMI(double,double):weightInKg / (heightInMeters * heightInMeters) => weightInKg % (heightInMeters * heightInMeters)
+AORB_11:24:double_calculateBMI(double,double):weightInKg / (heightInMeters * heightInMeters) => weightInKg + heightInMeters * heightInMeters
+AORB_12:24:double_calculateBMI(double,double):weightInKg / (heightInMeters * heightInMeters) => weightInKg - heightInMeters * heightInMeters
+ROR_1:16:double_calculateBMI(double,double): heightInCm <= 0  =>   heightInCm > 0
+ROR_2:16:double_calculateBMI(double,double): heightInCm <= 0  =>   heightInCm >= 0
+ROR_3:16:double_calculateBMI(double,double): heightInCm <= 0  =>   heightInCm < 0
+ROR_4:16:double_calculateBMI(double,double): heightInCm <= 0  =>   heightInCm == 0
+ROR_5:16:double_calculateBMI(double,double): heightInCm <= 0  =>   heightInCm != 0
+ROR_6:16:double_calculateBMI(double,double): heightInCm <= 0  =>   true
+ROR_7:16:double_calculateBMI(double,double): heightInCm <= 0  =>   false
+ROR_8:16:double_calculateBMI(double,double): weightInKg <= 0  =>   weightInKg > 0
+ROR_9:16:double_calculateBMI(double,double): weightInKg <= 0  =>   weightInKg >= 0
+ROR_10:16:double_calculateBMI(double,double): weightInKg <= 0  =>   weightInKg < 0
+ROR_11:16:double_calculateBMI(double,double): weightInKg <= 0  =>   weightInKg == 0
+ROR_12:16:double_calculateBMI(double,double): weightInKg <= 0  =>   weightInKg != 0
+ROR_13:16:double_calculateBMI(double,double): weightInKg <= 0  =>   true
+ROR_14:16:double_calculateBMI(double,double): weightInKg <= 0  =>   false
+ROR_15:19:double_calculateBMI(double,double): heightInCm >= heightBoundary  =>   heightInCm > heightBoundary
+ROR_16:19:double_calculateBMI(double,double): heightInCm >= heightBoundary  =>   heightInCm < heightBoundary
+ROR_17:19:double_calculateBMI(double,double): heightInCm >= heightBoundary  =>   heightInCm <= heightBoundary
+ROR_18:19:double_calculateBMI(double,double): heightInCm >= heightBoundary  =>   heightInCm == heightBoundary
+ROR_19:19:double_calculateBMI(double,double): heightInCm >= heightBoundary  =>   heightInCm != heightBoundary
+ROR_20:19:double_calculateBMI(double,double): heightInCm >= heightBoundary  =>   true
+ROR_21:19:double_calculateBMI(double,double): heightInCm >= heightBoundary  =>   false
+ROR_22:19:double_calculateBMI(double,double): weightInKg >= weightBoundary  =>   weightInKg > weightBoundary
+ROR_23:19:double_calculateBMI(double,double): weightInKg >= weightBoundary  =>   weightInKg < weightBoundary
+ROR_24:19:double_calculateBMI(double,double): weightInKg >= weightBoundary  =>   weightInKg <= weightBoundary
+ROR_25:19:double_calculateBMI(double,double): weightInKg >= weightBoundary  =>   weightInKg == weightBoundary
+ROR_26:19:double_calculateBMI(double,double): weightInKg >= weightBoundary  =>   weightInKg != weightBoundary
+ROR_27:19:double_calculateBMI(double,double): weightInKg >= weightBoundary  =>   true
+ROR_28:19:double_calculateBMI(double,double): weightInKg >= weightBoundary  =>   false
+ROR_29:30:java.lang.String_getCategory(double,double): bmi < 18.5  =>   bmi > 18.5
+ROR_30:30:java.lang.String_getCategory(double,double): bmi < 18.5  =>   bmi >= 18.5
+ROR_31:30:java.lang.String_getCategory(double,double): bmi < 18.5  =>   bmi <= 18.5
+ROR_32:30:java.lang.String_getCategory(double,double): bmi < 18.5  =>   bmi == 18.5
+ROR_33:30:java.lang.String_getCategory(double,double): bmi < 18.5  =>   bmi != 18.5
+ROR_34:30:java.lang.String_getCategory(double,double): bmi < 18.5  =>   true
+ROR_35:30:java.lang.String_getCategory(double,double): bmi < 18.5  =>   false
+ROR_36:33:java.lang.String_getCategory(double,double): bmi < 25  =>   bmi > 25
+ROR_37:33:java.lang.String_getCategory(double,double): bmi < 25  =>   bmi >= 25
+ROR_38:33:java.lang.String_getCategory(double,double): bmi < 25  =>   bmi <= 25
+ROR_39:33:java.lang.String_getCategory(double,double): bmi < 25  =>   bmi == 25
+ROR_40:33:java.lang.String_getCategory(double,double): bmi < 25  =>   bmi != 25
+ROR_41:33:java.lang.String_getCategory(double,double): bmi < 25  =>   true
+ROR_42:33:java.lang.String_getCategory(double,double): bmi < 25  =>   false
+ROR_43:36:java.lang.String_getCategory(double,double): bmi < 30  =>   bmi > 30
+ROR_44:36:java.lang.String_getCategory(double,double): bmi < 30  =>   bmi >= 30
+ROR_45:36:java.lang.String_getCategory(double,double): bmi < 30  =>   bmi <= 30
+ROR_46:36:java.lang.String_getCategory(double,double): bmi < 30  =>   bmi == 30
+ROR_47:36:java.lang.String_getCategory(double,double): bmi < 30  =>   bmi != 30
+ROR_48:36:java.lang.String_getCategory(double,double): bmi < 30  =>   true
+ROR_49:36:java.lang.String_getCategory(double,double): bmi < 30  =>   false
+COR_1:16:double_calculateBMI(double,double): heightInCm <= 0 || weightInKg <= 0  =>   heightInCm <= 0 && weightInKg <= 0
+COR_2:16:double_calculateBMI(double,double): heightInCm <= 0 || weightInKg <= 0  =>   heightInCm <= 0 ^ weightInKg <= 0
+COR_3:19:double_calculateBMI(double,double): heightInCm >= heightBoundary || weightInKg >= weightBoundary  =>   heightInCm >= heightBoundary && weightInKg >= weightBoundary
+COR_4:19:double_calculateBMI(double,double): heightInCm >= heightBoundary || weightInKg >= weightBoundary  =>   heightInCm >= heightBoundary ^ weightInKg >= weightBoundary
