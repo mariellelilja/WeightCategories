@@ -27,7 +27,8 @@ repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()
     flatDir {
-        dirs("lib")    }
+        dirs("lib")    
+    }
 }
 
 dependencies {
@@ -80,6 +81,27 @@ java {
         languageVersion = JavaLanguageVersion.of(8)
     }
 }
+
+// Task to aggregate all mutant class files into a single directory
+tasks.register<Copy>("aggregateMutantClasses") {
+    from(fileTree("MuJava/result/WeightHelper/traditional_mutants")) {
+        include("**/*.class")
+    }
+    into(file("build/mutants"))
+}
+
+// Task to run tests on aggregated mutant classes
+tasks.register<Test>("runTestsOnMutants") {
+    dependsOn("aggregateMutantClasses")
+    testClassesDirs = files("build/mutants")
+    classpath = files("build/mutants", sourceSets["test"].runtimeClasspath)
+    useJUnit()
+    reports {
+        junitXml.required.set(true)
+        html.required.set(true)
+    }
+}
+
 
 application {
     // Define the main class for the application.
