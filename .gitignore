@@ -4,4 +4,7 @@
 # Ignore Gradle build output directory
 build
 
+
 .metadata/
+.metadata/*
+.metadata/.plugins/*
